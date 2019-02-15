@@ -1,0 +1,38 @@
+/*Calculator that determines if we are getting enough sleep per week.*/
+
+//First, set up the ideal number of hours we want to sleep per day. Setting to 9, but change based on your needs.
+const idealHours = 9;
+
+//Let's get our total hours of sleep by adding each day. We'll use 8 as a default for each day, but change based on your actual sleep.
+const getActualSleepHours = () => 8 + 8 + 8 + 8 + 8 + 8 + 8;
+
+//Now get our ideal hours of sleep for the week.
+const getIdealSleepHours = idealHours => idealHours * 7;
+
+//Next up we'll calculate the difference between our ideal and actual hours of sleep, that is, our sleep debt.
+const calculateSleepDebt = () =>
+{
+  //Let's get our actual and ideal hours of sleep.
+  const actualSleepHours = getActualSleepHours();
+  const idealSleepHours = getIdealSleepHours(9);
+  
+  //If we managed to get the ideal amount of sleep, let the user know.
+  if(actualSleepHours === idealSleepHours)
+    {
+      console.log("You have gotten your ideal amount of sleep!");
+    }
+  
+  //If we sleep longer, advise of the issue.
+  else if(actualSleepHours > idealSleepHours)
+    {
+      console.log("You desired " + idealSleepHours + " hours of sleep and got " + actualSleepHours + " hours of sleep. Thus, you have overslept by " + (idealSleepHours - actualSleepHours) + " hours.");
+    }
+  
+  //Also advise if we did not get our ideal amount.
+   else if(actualSleepHours < idealSleepHours)
+    {
+        console.log("You desired " + idealSleepHours + " hours of sleep and got " + actualSleepHours + " hours of sleep. Thus, you needed " + (idealSleepHours - actualSleepHours) + " hours to get your ideal weekly amount.");
+    }
+}
+
+calculateSleepDebt();
